@@ -41,8 +41,8 @@ MAIN:
 	my $mode = 'turns';
 	if (exists($opts{m})) {
 		my %modes = (
-			'turns'		=> 'the sequence of turns',
-			'turtle'	=> 'turtle graphics commands',
+			turns	=> 'the sequence of turns',
+			turtle	=> 'turtle graphics commands',
 		);
 
 		if ($opts{m} eq 'list') {
