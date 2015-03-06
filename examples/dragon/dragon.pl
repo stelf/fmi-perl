@@ -30,6 +30,42 @@ sub version()
 	say 'dragon 0.01';
 }
 
+sub step($ $ $)
+{
+	my ($x, $y, $dir) = @_;
+
+	my @steps = ( (0, 1), (1, 0), (0, -1), (-1, 0) );
+	my ($dx, $dy) = @steps[2 * $dir, 2 * $dir + 1];
+	return ($x + $dx, $y + $dy);
+}
+
+sub turn($ $)
+{
+	my ($dir, $turn) = @_;
+
+	return ($dir - 1 + 2 * $turn) % 4;
+}
+
+sub get_coords(@)
+{
+	my (@turns) = @_;
+	my ($x, $y) = (0, 0);
+	my $dir = 0;
+	my @coords;
+
+	push @coords, ($x, $y);
+	($x, $y) = step $x, $y, $dir;
+	push @coords, ($x, $y);
+
+	for my $turn (@turns) {
+		$dir = turn $dir, $turn;
+		($x, $y) = step $x, $y, $dir;
+		push @coords, ($x, $y);
+	}
+
+	return @coords;
+}
+
 MAIN:
 {
 	my %opts;
@@ -41,6 +77,7 @@ MAIN:
 	my $mode = 'turns';
 	if (exists($opts{m})) {
 		my %modes = (
+			coords	=> 'the coordinates of the points on the curve',
 			turns	=> 'the sequence of turns',
 			turtle	=> 'turtle graphics commands',
 		);
@@ -64,11 +101,23 @@ MAIN:
 
 	if ($mode eq 'turns') {
 		say @turns;
+		exit(0);
 	} elsif ($mode eq 'turtle') {
 		say 'forward 10';
 		for my $turn (@turns) {
 			say $turn? 'right': 'left', ' 90';
 			say 'forward 10';
 		}
+		exit(0);
+	}
+
+	my @coords = get_coords @turns;
+	if ($mode eq 'coords') {
+		my @c;
+		while (@coords) {
+			my ($x, $y) = (shift @coords, shift @coords);
+			push @c, "($x, $y)";
+		};
+		say join ', ', @c;
 	}
 }
