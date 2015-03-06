@@ -13,13 +13,7 @@ MAIN:
 
 	my @turns = (1);
 	for my $gen (2..$generation) {
-		my @new = @turns;
-
-		push @new, 1;
-
-		push @new, map { 1 - $_ } reverse @turns;
-
-		@turns = @new;
+		@turns = (@turns, 1, map { 1 - $_ } reverse @turns);
 	}
 
 	say @turns;
