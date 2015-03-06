@@ -5,6 +5,8 @@ use strict;
 use warnings;
 
 use Getopt::Std;
+use GD::Simple;
+use List::Util 'max';
 
 sub usage($) {
 	my ($err) = @_;
@@ -78,6 +80,7 @@ MAIN:
 	if (exists($opts{m})) {
 		my %modes = (
 			coords	=> 'the coordinates of the points on the curve',
+			png	=> 'a PNG image of the curve',
 			turns	=> 'the sequence of turns',
 			turtle	=> 'turtle graphics commands',
 		);
@@ -119,5 +122,28 @@ MAIN:
 			push @c, "($x, $y)";
 		};
 		say join ', ', @c;
+		exit(0);
+	}
+
+	if ($mode eq 'png') {
+		my $maxval = max map { abs($_) } @coords;
+		my $scale = 256 / $maxval;
+
+		my $img = GD::Simple->new(600, 600);
+		$img->bgcolor('white');
+		$img->fgcolor('black');
+
+		$img->moveTo(300, 300);
+
+		while (@coords) {
+			my ($x, $y) = (shift @coords, shift @coords);
+			my ($imgx, $imgy) = (300 + $scale * $x, 300 - $scale * $y);
+
+			$img->lineTo($imgx, $imgy);
+		}
+
+		binmode STDOUT;
+		print $img->png;
+		exit(0);
 	}
 }
