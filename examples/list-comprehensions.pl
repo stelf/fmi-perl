@@ -24,18 +24,28 @@ use utf8;
 
 use v5.012;
 
-my @ary = qw/1 2 5 2 593 937 489127 4812 847 1238 64 87/;
+my @ary = qw/a b c d e f g h/;
 
-@ary[map {($_, $_ + 1)} map {$_*2} 0..@ary/2-1] = 
-    @ary[map {($_ + 1, $_)}  map {$_*2} 0..@ary/2-1 ];
+say "original: @ary";
 
+# variant 1 - use list comprehension to get indices 
+# in order ( 1, 0, 3, 2, 5, 4.... n+1, n)
+# and then slice the array in this order
 
-say join ',', @ary;
+@ary = @ary[map {($_ + 1, $_)} map {$_*2} 0..@ary/2-1];
 
+say "reversed: @ary";
+
+# variant 2 - iterate with list
+#
 for my $i (grep { $_ & 1 } 1..@ary) { 
     @ary[$i-1, $i ] = @ary[$i, $i-1];
 }
 
-say join ',', @ary;
+say "back again: @ary";
 
+use List::Util qw/pairmap/;
 
+@ary = pairmap { ($b, $a) } @ary; 
+
+say "...and back: @ary";
