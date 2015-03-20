@@ -1,0 +1,12 @@
+a b 10
+b c 20
+d e 10
+b f 2
+b d 1
+e f 5
+f a 10
+g a 4
+g c 3
+g b 1
+? a g
+? d f
