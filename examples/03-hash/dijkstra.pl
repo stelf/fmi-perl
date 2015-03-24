@@ -38,7 +38,6 @@ while (<>) {
         
         $G{$a} ||= [];          # init the $a elem of %G 
         push $G{$a}, ($b, $w);  # mind the autoderef !
-        # push @{$G{$a}}, ($b, $w); # mind the autoderef !
     } else {
         my ( $s, $e ) = /\w/g;
 
@@ -85,7 +84,6 @@ while (<>) {
 
         say $s, " to ", $e, " is ", 
             defined $dist{$e} ? $dist{$e} : '∞';
-
     }
 }
 
