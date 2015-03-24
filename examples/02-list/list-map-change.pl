@@ -1,16 +1,12 @@
 #!/usr/bin/env perl 
 #===============================================================================
 #
-#         FILE: wtf.pl
+#         FILE: list-map-change.pl
 #
-#        USAGE: ./wtf.pl  
+#        USAGE: list-map-change.pl
 #
-#  DESCRIPTION: wtf?!
+#  DESCRIPTION: demonstrate the effect of map aligning $_ with array elements
 #
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
 #       AUTHOR: YOUR NAME (), 
 # ORGANIZATION: 
 #      VERSION: 1.0

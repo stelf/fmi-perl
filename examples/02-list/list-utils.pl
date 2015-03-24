@@ -1,21 +1,17 @@
 #!/usr/bin/env perl 
+#
 #===============================================================================
 #
-#         FILE: reduce.pl
+#         FILE: list-utils.pl
 #
-#        USAGE: ./reduce.pl  
+#        USAGE: ./list-uitls.pl  
 #
 #  DESCRIPTION: reduce example
 #
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: YOUR NAME ()  
-# ORGANIZATION: 
+#       AUTHOR: stelf
+# ORGANIZATION: Practical Perl Programing at FMI/Sofia University
 #      VERSION: 1.0
 #      CREATED: 03/13/2015 12:33:11 PM
-#     REVISION: ---
 #===============================================================================
 
 use strict;

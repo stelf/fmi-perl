@@ -1,17 +1,11 @@
 #!/usr/bin/env perl 
 #===============================================================================
 #
-#         FILE: lcompr.pl
-#
-#        USAGE: ./lcompr.pl  
+#         FILE: list-comprehensions.pl
 #
 #  DESCRIPTION: array slice & list comprehensions
 #
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: YOUR NAME (), 
+#       AUTHOR: stelf
 # ORGANIZATION: 
 #      VERSION: 1.0
 #      CREATED: 03/13/2015 10:56:13 AM

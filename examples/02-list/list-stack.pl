@@ -1,21 +1,15 @@
 #!/usr/bin/env perl 
 #===============================================================================
 #
-#         FILE: stack.braces.pl
-#
-#        USAGE: ./stack.braces.pl  
+#      FILE: list-stack.pl
 #
 #  DESCRIPTION: example matching stack braces
 #
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: YOUR NAME (), 
-# ORGANIZATION: 
+#       AUTHOR: stelf
+# ORGANIZATION: Practical Perl Programing at FMI/Sofia University
 #      VERSION: 1.0
 #      CREATED: 03/13/2015 10:24:56 AM
-#     REVISION: ---
+#
 #===============================================================================
 
 use strict;
@@ -26,9 +20,10 @@ use v5.012;
 
 my $bstr = $ARGV[0] || "ds[dsds[(asd)]]";
 
+say 'parsing ', $bstr;
+
 # each opening brace has a matching closing brace
 my %bmatch = qw/( ) [ ] { }/;
-my %rmatch = qw/) ( ] [ } {/;
 
 # stack var
 my @s;
@@ -38,7 +33,6 @@ for my $pos (1..length($bstr)) {
     
     # push in stack if exists such characater
     # that is assumed to be an opening brace 
-    
     exists $bmatch{$c} 
         and push @s, $c;
     

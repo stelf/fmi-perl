@@ -1,7 +1,22 @@
 #!/usr/bin/perl
 
-use v5.012;
+#===============================================================================
+#
+#         FILE: list-argv.pl
+#
+#  DESCRIPTION: play with arguments
+#
+#       AUTHOR: stelf
+# ORGANIZATION: Practical Perl Programing at FMI/Sofia University
+#      VERSION: 1.0
+#     
+#===============================================================================
+
 use strict;
+use warnings;
+use utf8;
+
+use v5.012;
 
 say "command line arguments : @ARGV  ";
 
