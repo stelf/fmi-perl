@@ -26,11 +26,18 @@ use v5.012;
 
 use Benchmark;
 use List::Util qw/first reduce/;
-use Test::More tests => 3;
 
+# get some random numbers
 my @nums = map { int rand 950 } 1..1000;
 
+
+# prepare test appraoches 
 my $app = {
+    'for(index)' => sub { 
+        for (my $i =0; $i<$#nums; $i++)  {
+           return $nums[$i] if $nums[$i] > 900;
+        }
+    },
     'foreach' => sub { 
         for (@nums) { 
            return $_ if $_ > 900;
@@ -44,5 +51,9 @@ my $app = {
     },
 };
 
+use Test::More tests => 4;
+# make sure we actually get the needed result
 ok($app->{$_}->() > 900, "$_ is good") for keys %{$app};
-timethese 100000, $app;
+
+# time these...
+timethese 200000, $app;
