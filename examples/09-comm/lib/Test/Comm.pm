@@ -30,12 +30,33 @@ func comm_init()
 
 func comm_encode_text(HashRef $comm, Str $text, Str $tag)
 {
-	return "foo";
+	$text =~ s/[\r\n]*$//;
+
+	my @lines = split /\n/, $text;
+	push @lines, '' unless @lines;
+
+	my $last = pop @lines;
+	my @res = map { "$tag-$_" } @lines;
+	return (@res, "$tag $last");
 }
 
-func comm_decode_line(HashRef $comm, Str $line, Maybe[Str] $eol?)
+func comm_decode_line(HashRef $comm, Str $line, Maybe[Str] $eol? = "\n")
 {
-	...;
+	if ($line !~ /^([A-Za-z0-9_.]+)([ -])(.*)/) {
+		die("Invalid protocol line: $line\n");
+	}
+	my ($tag, $sep, $text) = ($1, $2, $3);
+
+
+	if ($sep eq ' ') {
+		my $lines = $comm->{lines}{$tag} // [];
+
+		delete $comm->{lines}{$tag};
+		return ($tag, join $eol, @{$lines}, $text);
+	} else {
+		push @{$comm->{lines}{$tag}}, $text;
+		return ();
+	}
 }
 
 1;
