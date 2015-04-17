@@ -21,6 +21,7 @@ use strict;
 use warnings;
 use utf8;
 
+use Set::Functional qw/difference_by/;
 use File::Copy qw/copy/;
 
 use v5.012;
@@ -28,45 +29,59 @@ use v5.012;
 use experimental qw/switch autoderef/;
 
 # I assume both these exist 
-my @q = ( '/tmp/s', '/tmp/d');
+my @q = ( '/home/stelf/tmp/s', '/home/stelf/tmp/d');
 
 # queue of directories I would like to walk
-
 # while there are more directories in the queue
+
 while (@q)  { 
     my ( $src, $dst ) = (shift @q, shift @q);
     say 'entering: ', $src, ' and ', $dst; 
+    
+    my @dlist;
+    my @slist = <$src/*>;
 
     # take one, and read it's contents
-    foreach my $entry (<$src/*>) {
+    foreach my $entry (@slist) {
         my $fname = substr $entry, length($src) + 1;
+
+        my $sfile = $src.'/'.$fname;
+        my $dfile = $dst.'/'.$fname;
+
         # check if directory of file
         given ($entry) { 
             when (-f) { 
-                $DB::single = 1;
+                say 'sync: ', $sfile;
                 # get sizes of files
                 my ($ssize, $dsize) = 
-                    (stat($src.'/'.$fname))[7],
-                    (stat($dst.'/'.$fname))[7];
+                    (stat $sfile)[7],
+                    (stat $dfile)[7];
                 
-                if ( $ssize != $dsize ) { 
-                    copy $src.'/'.$fname, $dst.'/'.$fname;
-                }
-            };
+                    copy $sfile, $dfile 
+                        unless defined $dsize and $ssize == $dsize;
+            }
 
             when (-d) { 
+                say 'schedule: ', $sfile;
+
                 unless  (/^\./) { 
                     # this is a directory
-                    push @q, $src.'/'.$fname;
-                    push @q, $dst.'/'.$fname;
+                    push @q, ($sfile, $dfile);
 
                     # if the destination dir does not exist - create it
-                    unless( -e $dst.'/'.$fname ) {
-                        mkdir $dst.'/'.$fname;
-                    }
+                    -e $dst.'/'.$fname or mkdir $dst.'/'.$fname;
                 }
             }
         }
+    }
+
+    # not optimal but, works...
+    @slist = map { [ substr ($_, length($src) + 1), $_ ] } <$src/*>;
+    @dlist = map { [ substr ($_, length($dst) + 1), $_ ] } <$dst/*>;
+    
+    foreach my $dfile ( difference_by { $_->[0] } [@dlist], [@slist] ) {
+        say 'removing: ', $dfile->[1];
+        -f $dfile->[1] and unlink $dfile->[1] ;
     }
 }
 
