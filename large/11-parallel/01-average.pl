@@ -4,22 +4,29 @@ use threads;
 use Thread::Queue;
 use IO::Scalar;
 use List::Util qw/sum/;
+use IO::Handle qw();  # For autoflush
+STDOUT->autoflush(1);
 
 use warnings;
 use strict;
 use v5.012;
 
+say 'program begins!';
+
 my $debug = 0;
 my $q = Thread::Queue->new;
 my $r = Thread::Queue->new;
 
+# generates 1k chunks
 sub gendata {
     my $data = shift;
     say 'generate 1M data';
     $$data = pack 'C*', map {
         int rand 100
-    } (1..3*1024*1024);
+    } (1..1024);
 }
+
+# pumps 1024*1024 1k chunks
 
 sub pump {
     my $res;
@@ -30,7 +37,7 @@ sub pump {
 
 #   while ( read $SH, $res, 1024 ) {
 
-    for (1..1024) {
+    for (my $i=0; $i < 8192; $i++) {
         $r->pending > 32 && redo;
         $res = pack 'C*', map { rand 255 } 1..1024;
         $debug and say 'pump: sending ', length $res;
@@ -70,9 +77,17 @@ sub res {
 
 my $rt = threads->create( \&res ),
 
-# two threads will not result in gained execution
+# more threads will not result in gained execution
+# because essentially all effort goes into passing
+# data around
 
 my @th = (
+    threads->create( \&chunker ),
+    threads->create( \&chunker ),
+    threads->create( \&chunker ),
+    threads->create( \&chunker ),
+    threads->create( \&chunker ),
+    threads->create( \&chunker ),
     threads->create( \&chunker ),
     threads->create( \&chunker ),
     threads->create( \&pump ),
