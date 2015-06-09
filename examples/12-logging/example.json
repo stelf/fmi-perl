@@ -1,0 +1,11 @@
+{"sub":"__ANON__","category":"demo","file":"Logger.pm","class":"Log::Log4perl::Logger","message":"beware!"}
+{"category":"demo","class":"Log::Log4perl::Logger","file":"Logger.pm","sub":"__ANON__","message":"beware!"}
+{"message":"app is alive","category":"detailed.main","file":"Logger.pm","sub":"__ANON__","class":"Log::Log4perl::Logger"}
+{"class":"Log::Log4perl::Logger","sub":"__ANON__","file":"Logger.pm","category":"detailed","message":"everything is fine, i just need s.o. to talk to"}
+{"class":"Log::Log4perl::Logger","sub":"__ANON__","file":"Logger.pm","message":"lemme share this, no worries","category":"detailed"}
+{"file":"Logger.pm","class":"Log::Log4perl::Logger","sub":"__ANON__","message":"app is alive","category":"detailed.main"}
+{"category":"detailed","message":"everything is fine, i just need s.o. to talk to","sub":"__ANON__","class":"Log::Log4perl::Logger","file":"Logger.pm"}
+{"file":"Logger.pm","class":"Log::Log4perl::Logger","message":"lemme share this, no worries","sub":"__ANON__","category":"detailed"}
+{"message":"app is alive","category":"detailed.main","file":"Logger.pm","sub":"__ANON__","class":"Log::Log4perl::Logger"}
+{"message":"everything is fine, i just need s.o. to talk to","category":"detailed","file":"Logger.pm","sub":"__ANON__","class":"Log::Log4perl::Logger"}
+{"category":"detailed","file":"Logger.pm","message":"lemme share this, no worries","class":"Log::Log4perl::Logger","sub":"__ANON__"}
