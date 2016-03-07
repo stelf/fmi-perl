@@ -1,0 +1,60 @@
+1. Program that reads a file and outputs the words in it sorted by frequency 
+of occurance.  The words are only separated by spaces (' ') and newlines
+('\n').
+
+  -- Try to do it without hashes
+  -- Use `split ' '` to get the words
+
+2. You have the following directory structure:
+
+  student_name1/grade.txt
+  student_name2/grade.txt
+  ...
+  student_nameN/grade.txt
+
+  The first line of grade.txt contains the grade of the student
+  `student_nameI`.  Write a program which traverses this structure and outputs
+  each student name along with their grade:
+
+  student_name1 -> grade1
+  student_name2 -> grade2
+  ...
+  student_nameN -> gradeN
+
+  Hint: Use `readdir` and `opendir` to traverse the directories.
+
+3. Read a file line-by-line and output only the _lines_ which contain a
+specific word.  Don't use regex.  Try `grep`.
+
+4. Given a list of numbers find their median.
+
+  Hint: The function `sort` sorts lexicographically.  Use the <=> operator to
+        force numeric sort.
+
+5. Read a file containing UTF-8 encoded text.  Output each word in the file
+with its length on a separate line.  The words are delimited by spaces and
+newlines only.
+
+6. Read a file by chunks.  Given a chunk size in bytes, output on lines
+separated by `:` each chunk of the file enclosed with square ([]) brackets.
+You should also handle Unicode.
+
+  Example file:
+
+    The quick brown fox jumps over the lazy dog.  Catherine was flabbergasted
+    by her unconcious uncle.
+
+  Example chunk size:
+    20
+
+  Example Output:
+    [The quick brown fox ]
+    :
+    [jumps over the lazy ]
+    :
+    [dog.  Catherine was ]
+    :
+    [flabbergasted
+    by her]
+    :
+    [ unconcious uncle.]
