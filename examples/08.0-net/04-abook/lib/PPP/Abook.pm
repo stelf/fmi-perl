@@ -19,18 +19,18 @@ sub add_address {
 
   if (!-f $abook_name) {
     open my $src, '>', $abook_name
-      or die ("Cannot open address book file: $abook_name;\n $!");
+      or return "ERR";
 
     say $src "$name,$phone";
-    return;
+    return "OK";
   }
 
   open my $src, '<', $abook_name
-    or die ("Cannot open address book file: $abook_name;\n $!");
+    or return "ERR";
 
   my $copy_file = "$abook_name.new";
   open my $new, '>', $copy_file
-    or die ("Cannot open file for copying: $copy_file;\n $!");
+    or return "ERR";
 
   my $is_added;
 
@@ -53,34 +53,39 @@ sub add_address {
   close $new;
 
   move $copy_file, $abook_name;
+
+  return "OK";
 }
 
 sub list {
   open my $abook, '<', $abook_name
-    or die ("Cannot open books file: $abook_name; $!");
+    or return "ERR";
 
+  my @ret_list;
   while (<$abook>) {
     chomp;
     my ($name, @phones) = split /,/;
 
-    say "$name => ", join ', ', @phones;
+    push @ret_list, "$name => " . join ', ', @phones;
   }
+
+  return "LIST ", join ';', @ret_list;
 }
 
 sub remove_address {
   if (!-f $abook_name) {
     # TODO: Maybe handle error
-    return;
+    return "ERR";
   }
 
   my ($name, $phone) = @_;
 
   open my $src, '<', $abook_name
-    or die "Cannot open $abook_name; $!";
+    or return "ERR";
 
   my $tmp_file = "$abook_name.new";
   open my $tmp, '>', $tmp_file
-    or die "Cannot open $tmp_file; $!";
+    or return "ERR";
 
   while (<$src>) {
     chomp and /([^,]+),(.*)/;
@@ -106,6 +111,8 @@ sub remove_address {
   }
 
   move $tmp_file, $abook_name;
+
+  return "OK";
 }
 
-0;
+1;
