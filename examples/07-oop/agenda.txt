@@ -1,0 +1,48 @@
+1. Classic OOP with 07-classic.pl
+  -- 3 principles
+    -- A class is a package
+    -- A method is a function
+    -- A blessed reference is an object
+  -- basics
+    -- new
+    -- accessors
+    -- inheritance via @ISA / use parent qw//;
+    -- overrides $self::SUPER->overriden(@_); !!! broken
+2. Working with cpan
+  -- metacpan.org
+  -- cpan install Moose
+  -- cpan install FindBin
+  -- cpan install Carp
+3. Moose objects
+  -- class vs instance methods
+  -- attributes
+      has <name> => (
+        is => <ro|rw>,
+        isa => <type>
+      )
+      -- types
+      -- rw
+      -- default => sub { }
+  -- polymorphism
+  -- roles
+    -- composition
+    -- DOES
+  -- inheritance
+    -- roles compose
+    -- inheritance extends
+    -- overriding
+    -- isa
+    -- mro
+  -- Moose
+    -- why?
+    -- MooseX::Declare
+    -- MOP
+4. Tips
+  -- Favor composition over inheritance
+  -- Single responsibility principle
+  -- DRY
+  -- Liskov substitution principle (being able to substitute the child for a
+      parent)
+  -- Use subtypes and coercions
+  -- Immutability (read-only accessors)
+    -- what to do *not* how to do
