@@ -34,14 +34,6 @@ my $flatten = reduce { [@$a, @$b] } @lsls;
 
 say @$flatten;
 
-# any/all notall/none
-say "Has long words: " . any { length > 5 } @words;
-
-=pod
-my $even = all { $_ % 2 }, (0, 2, 4);
-say "All even? $even";
-=cut
-
 # max/min maxstr/minstr
 say max @nums;
 say minstr @words;
