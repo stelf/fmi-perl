@@ -1,0 +1,55 @@
+1. List::Util
+  -- reduce
+  -- any/all
+  -- first
+  -- max/min, maxstr/minstr
+  -- pairs/unpairs
+  -- pairkeys, pairvalues
+  -- pair grep/map/first
+  -- shuffle
+2. List::MoreUtils
+  -- Junctions
+    * treating empty lists (_u)
+    * all, any, none, notall, one
+  -- Transformation
+    * apply, pairwise
+    * insert_after, insert_after_string
+    * mesh (zip)
+    * uniq (distinct)
+    * singleton
+  -- Partitioning
+    * after, after_incl
+    * before, before_incl
+    * part
+  -- Iteration
+    * each_array, each_arrayref
+    * natatime
+  -- Searching
+    * bsearch, bsearchidx
+    * firstval, onlyval, lastval
+    * firstres, onlyres, lastres
+    * indexes
+    * firstidx, onlyidx, lastidx
+  -- Sorting
+    * sort_by, nsort
+  -- Counting
+    * true, false
+    * minmax
+3. Set::Functional
+  -- setify, setify_by
+  -- Operators
+    * cartesian
+    * difference(_by)
+    * disjoint(_by)
+    * distinct(_by)
+    * intersection(_by)
+    * symmetric_difference(_by)
+    * union(_by)
+  -- Predicates
+    * is_disjoint
+    * is_equal
+    * is_pairwise_disjoint
+    * is_proper_subset
+    * is_proper_superset
+    * is_subset
+    * is_superset
