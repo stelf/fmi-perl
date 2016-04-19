@@ -109,3 +109,6 @@ my @first_good =
 for my $st (@first_good) {
   say "$st->{name} ain't so good";
 }
+
+say "First neg val: ", firstval { $_ < 0 } @nums_three;
+say "First neg res: ", firstres { $_ < 0 } @nums_three;
