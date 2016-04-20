@@ -1,16 +1,36 @@
 1. Carton, local::lib, Getopt::Args
 2. Querying
   -- LWP
+    * https://metacpan.org/pod/LWP
+    * What is HTTP
+    * HTTP style communication
+    * request/response objects
+    * User Agents
+    * Examples
   -- URI
+    * What are URIs
+        https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+    * What are URLs and URNs
+    * Examples
 3. Working with HTML
+  -- HTML 101
+    * Structure
+    * Parsing
+    * Browsers
   -- HTML::Parser
+    * Simple parsing
+    * Callbacks
+    * Reacting on events
   -- HTML::LinkExtor
   -- HTML::Escape
-4. Lingua::Translate
-5. Parsing/Generating other data
-  -- XML::Generator
-  -- XML::Smart
-  -- XML::Twig
-  -- XML::Parser
-  -- JSON::MaybeXS
-  -- JSON::XS
+4. Parsing/Generating other data
+  -- XML
+    * What is XML
+    * XML::Generator
+    * XML::Smart (Use XMLs as hashes)
+    * XML::Twig (Parse by chunks, lazily)
+    * XML::Parser (Parsing with handlers and stuff)
+  -- JSON
+    * What is JSON
+    * JSON::XS
+5. Lingua::Translate
