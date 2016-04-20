@@ -1,0 +1,16 @@
+1. Carton, local::lib, Getopt::Args
+2. Querying
+  -- LWP
+  -- URI
+3. Working with HTML
+  -- HTML::Parser
+  -- HTML::LinkExtor
+  -- HTML::Escape
+4. Lingua::Translate
+5. Parsing/Generating other data
+  -- XML::Generator
+  -- XML::Smart
+  -- XML::Twig
+  -- XML::Parser
+  -- JSON::MaybeXS
+  -- JSON::XS
