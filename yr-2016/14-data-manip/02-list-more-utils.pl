@@ -104,7 +104,7 @@ my @people = (
 
 my @first_good =
   bsearch { $_->{grade} - 4 } 
-    sort_by { $_->{name} } @people;
+    sort_by { $_->{grade} } @people;
 
 for my $st (@first_good) {
   say "$st->{name} ain't so good";
