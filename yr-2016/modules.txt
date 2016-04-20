@@ -1,8 +1,5 @@
-Carton
-local::lib
 Data::Dumper
 Try::Tiny
-Getopt::Args
 Log::Log4perl
 experimental
 Perl::Critic
@@ -18,24 +15,13 @@ File::Path
 File::Slurp
 File::Type
 
-LWP::Simple
-LWP::UserAgent
-LWP
 Plack
 Starman
 Dancer
 Dancer::Plugin::REST
 
-JSON::MaybeXS
-JSON::XS
-XML::Generator
-XML::LibXML
-XML::Smart
-XML::Twig
-XML::Parser
 SerealX::Store
 Spreadsheet
-HTML::Escape
 
 DBIx::Class
 DBIx::Class::Candy
@@ -70,11 +56,28 @@ Digest
 Time::HiRes
 Math::BigInt
 Tie::IxHash
-Lingua::Translate
-URI
-HTML::LinkExtor
 
 =Done=
+wk-14.1
 List::Util
 List::MoreUtils
 Set::Functional
+
+wk-14.2
+Carton
+local::lib
+Getopt::Args
+LWP::Simple
+LWP::UserAgent
+LWP
+HTML::Parser
+HTML::LinkExtor
+HTML::Escape
+URI
+Lingua::Translate
+XML::Generator
+JSON::MaybeXS
+JSON::XS
+XML::Smart
+XML::Twig
+XML::Parser
