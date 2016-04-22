@@ -1,0 +1,4 @@
+Create a simple Server that, given a list of URIs, fetches their content, gets
+all the links and craws them, and returns an XML or JSON of acquired objects.
+
+A client should get this list and do something with it.
