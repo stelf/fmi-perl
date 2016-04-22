@@ -8,9 +8,11 @@
     * User Agents
     * Examples
   -- URI
-    * What are URIs
+    * What are URIs, URLs, URNs?
         https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
-    * What are URLs and URNs
+        Locators denote where something is -- Sofia, FMI, room 107
+        Identifiers tell us about a something -- Tsvetan Tsvetanov
+        URNs should be unique across space and time
     * Examples
 3. Working with HTML
   -- HTML 101
