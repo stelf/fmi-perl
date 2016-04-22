@@ -18,9 +18,8 @@
     * Parsing
     * Browsers
   -- HTML::Parser
-    * Simple parsing
-    * Callbacks
-    * Reacting on events
+    * Event-driven parsing of HTML
+    * HTML::PullParser -- traditional approach
   -- HTML::LinkExtor
   -- HTML::Escape
 4. Parsing/Generating other data
