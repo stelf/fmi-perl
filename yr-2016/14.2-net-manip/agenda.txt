@@ -24,7 +24,7 @@
   -- HTML::Escape
 4. Parsing/Generating other data
   -- XML
-    * What is XML
+    * What is XML -- https://www.w3.org/XML/
     * XML::Generator
     * XML::Smart (Use XMLs as hashes)
     * XML::Twig (Parse by chunks, lazily)
