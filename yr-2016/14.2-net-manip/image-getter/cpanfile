@@ -1,0 +1,5 @@
+requires 'HTML::LinkExtor';
+requires 'LWP';
+requires 'JSON::XS';
+requires 'XML::Parser';
+requires 'XML::Generator';
