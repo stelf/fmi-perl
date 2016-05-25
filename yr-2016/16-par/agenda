@@ -1,0 +1,38 @@
+1. Multithreading
+  -- threads
+  -- create, join, detach
+  -- yield
+  -- list - running, joinable
+  -- threads::shared
+  -- thread stack size
+  -- BUGS and LIMITATIONS
+
+  -- examples
+    * threaded server
+    * ???
+2. forking
+  -- fork
+  -- $$ ($PROCESS_ID), %ENV
+  -- exit
+  -- Parallel::ForkManager
+
+  -- examples
+    * forking server
+3. forks
+  -- examples - from `Multithreading`
+4. Thread::Queue
+  -- Why use queues?
+  -- What is `thread-safe`
+  -- dequeue / enqueue . end
+  -- pending
+  -- dequeue_nb, dequeue_timed
+  -- peek, insert, extract
+  -- Go in Perl
+
+  -- examples
+    * squaring numbers
+    * calculating SHA1 hashes of files
+5. Others
+  -- Time::HiRes
+  -- Math::BigInt
+  -- App::Daemonize
