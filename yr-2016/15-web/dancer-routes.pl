@@ -7,8 +7,10 @@ use v5.014;
 use Dancer;
 use List::Util qw/reduce/;
 
+
 use Log::Log4perl;
-Log::Log4perl->init_and_watch("etc/log.conf", 20); # 'HUP'
+Log::Log4perl->init("etc/log.conf"); # 'HUP'
+
 
 my $logger = Log::Log4perl->get_logger();
 
@@ -25,26 +27,43 @@ get '/sum-many/:numbers/:initial?' => sub {
   return $initial + reduce { $a + $b } @nums;
 };
 
+sub status_forbidden {
+  my $msg = shift;
+  $logger->info($msg) and 
+    status 'Forbidden' and
+      return $msg;
+}
+
+sub check_params {
+  param('fname') or 
+    return "param `fname` expected";
+
+  param('fname') =~ /\.sum$/ or
+    return "file extension should be `.sum`";
+
+  param('numbers') or
+    return "param `numbers` expected";
+
+  return undef;
+}
+
 prefix '/fs' => sub {
   post '/create-file' => sub {
-    param('fname') or 
-      status 'Forbidden' and return "param `fname` expected";
+    $logger->info("In /create-file");
+    my $check = check_params();
+    if (defined $check) {
+      return status_forbidden($check);
+    }
 
-    param('fname') =~ /\.sum$/ or
-      status 'Forbidden' and return "file extension should be `.sum`";
-
-    param('numbers') or
-      status 'Forbidden' and return "param `numbers` expected";
-
-    open (my $fh, '>', param('fname'))
-      or status 'Forbidden' and return;
+    open (my $fh, '>', param('fname')) or
+      return status_forbidden("can't open file");
 
     print $fh param('numbers');
 
     return 'Created'; 
   };
 
-  get qr{/sum/(.*\.sum)} => sub {
+  get qr{/sum/(.*\.sum$)} => sub {
     my ($fname) = splat;
 
     open (my $fh, '<', $fname)
@@ -56,6 +75,21 @@ prefix '/fs' => sub {
     }
 
     return reduce { $a + $b } @nums;
+  };
+
+  put '/update-file' => sub {
+    $logger->info("In /update-file");
+    my $check = check_params();
+    if (defined $check) {
+      return status_forbidden($check);
+    }
+
+    open (my $fh, '>>', param('fname')) or
+      return status_forbidden("can't open file");
+
+    print $fh "\n" . param('numbers');
+
+    return 'Updated';
   };
 };
 
