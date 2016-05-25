@@ -24,28 +24,41 @@ Compress::Raw::Zlib
 
 Kavorka
 
-AnyEvent
-IO::Async
-Parallel::ForkManager
-Thread::Queue
-App::Daemon
-forks
-MCE
-POE
-
 GD
 Imager
 
 List::Gen
 Finance::Quote
-Future
 Digest
-Time::HiRes
-Math::BigInt
 Tie::IxHash
 
 
 =Done=
+wk-17.2
+-------
+practice tasks
+
+wk-17.1
+-------
+MCE
+POE
+
+AnyEvent
+
+IO::Async
+Future
+
+wk-16
+-----
+forks
+Parallel::ForkManager
+Thread::Queue
+
+Time::HiRes
+Math::BigInt
+
+App::Daemon
+
 wk-15
 -----
 Plack
