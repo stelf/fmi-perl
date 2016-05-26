@@ -1,15 +1,12 @@
 1. Multithreading
   -- threads
   -- create, join, detach
-  -- yield
   -- list - running, joinable
   -- threads::shared
-  -- thread stack size
   -- BUGS and LIMITATIONS
 
   -- examples
     * threaded server
-    * ???
 2. forking
   -- fork
   -- $$ ($PROCESS_ID), %ENV
