@@ -5,6 +5,8 @@ use warnings;
 use v5.014;
 
 
+#
+# Variables and waiting
 my $name = 'Parent';
 
 say "PID $$";
