@@ -30,4 +30,4 @@
 5. Others
   -- Time::HiRes
   -- Math::BigInt
-  -- App::Daemonize
+  -- App::Daemon
