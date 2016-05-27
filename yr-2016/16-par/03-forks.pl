@@ -55,6 +55,17 @@ my $server = IO::Socket::INET->new(
   ReuseAddr => 1,
 ) or die "Could not create server: $!\n";
 
+sub clean_up {
+  for my $t (@threads) {
+    $t->detach;
+  }
+  say "terminated";
+  exit 0;
+}
+
+$SIG{KILL} = \&clean_up;
+$SIG{TERM} = \&clean_up;
+
 while (my $cli = $server->accept()) {
   my $t = threads->new(sub {
     while (<$cli>) {
@@ -74,8 +85,4 @@ while (my $cli = $server->accept()) {
   });
 
   push @threads, $t;
-}
-
-for my $t (@threads) {
-  $t->join;
 }
