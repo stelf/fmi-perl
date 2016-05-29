@@ -37,29 +37,27 @@ Tie::IxHash
 wk-17.2
 -------
 practice tasks
+ - task with forks
+ - task with Thread::Queue
+ - read about IO::Async
+ - task with IO::Async
+ - try the Future module
 
 wk-17.1
 -------
 Thread::Queue
 
-MCE
-POE
-
 AnyEvent
 
-IO::Async
-Future
+Time::HiRes
+Math::BigInt
+App::Daemon
 
 wk-16
 -----
 threads
 forks
 Parallel::ForkManager
-
-Time::HiRes
-Math::BigInt
-
-App::Daemon
 
 wk-15
 -----
