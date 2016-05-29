@@ -1,0 +1,36 @@
+1. Thread::Queue
+  -- Why use queues?
+  -- What is `thread-safe`
+  -- dequeue / enqueue . end
+  -- pending
+  -- dequeue_nb, dequeue_timed
+  -- peek, insert, extract
+  -- Go in Perl
+
+  -- examples
+    * squaring numbers
+    * calculating SHA1 hashes of files
+2. AnyEvent
+  -- blocking vs non-blocking
+  -- what is event-based programming?
+  -- waiting for input
+  -- condition variables
+  -- timers
+  -- tcp servers - a finger client
+    o Saving the $read_watcher
+    o Buffering our reads
+    o running the client
+  -- HTTP with AnyEvent::Handle
+    o returning errors
+    o destroying handles
+    o on_eof
+    o write queue (push_write)
+    o read queue (check line endings; on_read callback)
+    o using it
+  -- HTTPS GET with AnyEvent::Handle
+    o specifying https and tls
+    o unshift_read
+4. Others
+  -- Time::HiRes
+  -- Math::BigInt
+  -- App::Daemon
