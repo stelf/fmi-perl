@@ -15,10 +15,6 @@ File::Type
 SerealX::Store
 Spreadsheet
 
-DBIx::Class
-DBIx::Class::Candy
-DBI
-
 Gzip::Faster
 Compress::Raw::Zlib
 
@@ -34,6 +30,12 @@ Tie::IxHash
 
 
 =Done=
+wk-18.2
+-------
+DBI
+DBIx::Class
+DBIx::Class::Candy
+
 wk-17.2
 -------
 practice tasks

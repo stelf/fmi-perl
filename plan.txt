@@ -1,0 +1,13 @@
+Другата седмица отучване -- от 18:00 до 21:00 в делничен ден. Подготовка за
+контролно.
+
+След това -- контролно върху всичко след ядрото на Perl:
+  * ListUtl, ListMoreUtils, Set::Functional
+  * LWP, URI, Carton, local::lib, HTML::Parser, HTML::LinkExtor
+  * XML::Generator, XML::Parser, JSON::XS
+  * Data::Dumper, Plack, Dancer, Starman
+  * threads, forks, Parallel::ForkManager, Thread::Queue, pipes
+  * AnyEvent, IO::Async
+  * DBI, DBIx::Class
+
+8 юли изпит или 9 юли сутрин.
