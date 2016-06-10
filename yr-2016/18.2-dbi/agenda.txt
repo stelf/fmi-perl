@@ -1,0 +1,28 @@
+1. Task
+  An AnyEvent server which listens for incoming client messages and local user
+  input.
+
+  The client messages will be of the form:
+    [type] [arg1] [arg2] [...]
+    Where [type] is the type of operation and [argN] is the Nth argument to
+    that operation.
+    An example operation could be:
+      add 2 2 -> Returns the sum of its arguments
+      print hello -> Echoes back its arguments
+
+  The local messages will be single-word commands:
+    stop -> stops the AnyEvent server from listening from clients
+    start -> starts the AnyEvent server to listen to clients
+    restart -> restarts the AnyEvent server
+
+2. DBI
+  -- What is a relational DB?
+  -- What is SQL?
+    o SELECT, INSERT, DELETE, UPDATE
+  -- What is DBI?
+  -- Using DBI
+
+3. ORM
+  -- What is ORM?
+  -- Using DBIx::Class
+  -- Using Rose::DB
