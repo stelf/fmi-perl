@@ -87,3 +87,5 @@ sub download_files_by_links {
 
 # композираме двете функции за да си свършим работата :)
 download_files_by_links("./downloads", get_image_links("https://xkcd.com"));
+
+say "Изтегляне, приключено.";
