@@ -1,0 +1,11 @@
+{
+  "Home": {
+    "address": { "type": "String", "access": "rw" },
+    "rent": { "type": "Int", "access": "rw" }
+  },
+  "Person": {
+    "name": { "type": "String", "access": "rw" },
+    "age": { "type": "Int", "access": "rw" },
+    "home": { "type": "Home", "access": "rw" }
+  }
+}

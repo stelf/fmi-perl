@@ -1,0 +1,6 @@
+{
+  "Person": {
+    "name": { "type": "String", "access": "rw" },
+    "age": { "type": "Int", "access": "rw" }
+  }
+}
